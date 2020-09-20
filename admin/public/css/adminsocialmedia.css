@@ -1,0 +1,5 @@
+td {padding:4px;}
+.tdcenter {text-align:center;}
+tr:nth-child(even) {background: #ddd}
+tr:nth-child(odd) {background: #eee}
+.numComments{padding:4px;}

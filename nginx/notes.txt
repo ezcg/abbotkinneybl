@@ -1,0 +1,8 @@
+To make ssl certs for a site, run bash/runmakecerts.sh
+
+nginx proxy info:
+https://hub.docker.com/r/jwilder/nginx-proxy/
+https://github.com/nginx-proxy/nginx-proxy
+http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/
+https://codewithhugo.com/docker-compose-local-https/
+

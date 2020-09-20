@@ -1,0 +1,440 @@
+/* START overwrite app.css
+  admin.css is included after app.css so that app.css may be overwritten */
+.navbar {
+    margin-bottom:10px;
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1250px;
+    }
+}
+label {
+    font-weight:normal;
+}
+body {
+    color:#000000;
+}
+.navbar-default .navbar-brand {
+    color:#000000;
+}
+button, input, optgroup, select, textarea {
+    color: #000000;
+}
+/* END overwrite app.css */
+
+.footerLinkCont {
+    margin:0px auto;
+    margin-top:20px;
+    margin-bottom:100px;
+    max-width: 700px;
+    border: 0px solid green;
+    text-align:center;
+}
+.footerLinkPreview {
+    float:left;
+    border: 0px solid black;
+    margin: 4px;
+    width:50px;
+}
+.socialmediaFooterImageLink {
+    width:50px;
+}
+.socialMediaFooterTextLink {
+    float: left;
+}
+
+.boxCont {
+    border:1px solid black;
+    padding:8px;
+    background-color:#eeeeee;
+    font-size:18px;
+}
+
+
+/* SPINNER START */
+
+.lds-spinner {
+    display: inline-block;
+    position: absolute;
+    top:30%;
+    left:50%;
+    width: 80px;
+    height: 80px;
+    border:1px solid #ffffff;
+    background-color:#cccccc;
+}
+.lds-spinner div {
+    transform-origin: 40px 40px;
+    animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 37px;
+    width: 6px;
+    height: 18px;
+    border-radius: 20%;
+    background: #fff;
+}
+.lds-spinner div:nth-child(1) {
+    transform: rotate(0deg);
+    animation-delay: -1.1s;
+}
+.lds-spinner div:nth-child(2) {
+    transform: rotate(30deg);
+    animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+    transform: rotate(60deg);
+    animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+    transform: rotate(90deg);
+    animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+    transform: rotate(120deg);
+    animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+    transform: rotate(150deg);
+    animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+    transform: rotate(180deg);
+    animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+    transform: rotate(210deg);
+    animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+    transform: rotate(240deg);
+    animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+    transform: rotate(270deg);
+    animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+    transform: rotate(300deg);
+    animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+    transform: rotate(330deg);
+    animation-delay: 0s;
+}
+@keyframes lds-spinner {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/* END SPINNER */
+
+
+#twitterImportCont {
+    float:left;
+    margin-right:4px;
+}
+#twitterImport {
+    float:left;
+}
+#twitterImportText, #createMainAccountsText {
+    display:none;
+    margin:8px auto;
+    width:800px;
+    text-align:center;
+    border: 1px solid #ccc;
+    padding: 6px;
+    background-color: #eee;
+    border-radius: 10px;
+}
+#createMainAccountsCont {
+    float:left;
+}
+.addAsMainAccountForm {
+    margin-right:2px;
+    float:left;
+}
+
+
+.addSMACont, .addFooterLinkCont, .editFooterLinkCont {
+    border:1px solid #cccccc;
+    margin:2px;
+    padding:8px;
+    background-color:#f5f5f5;
+}
+.userlink {
+    float:right;
+    padding-top:15px;
+}
+.wikipediaUrlCont {
+    width:800px;
+    margin-top:10px;
+    margin-bottom:2px;
+    border:1px solid black;
+    background-color:#ffffff;
+    font-size:16px;
+    padding:4px;
+    margin:4px;
+}
+
+.selectedLink {
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.socialmediaFooterImageLink {
+    float: left;
+    width:50px;
+}
+
+.linkName {
+    width:200px;
+}
+.linkImgSrcTextField, .linkHrefTextField, .linkNameTextField {
+    width: 600px;
+}
+
+.wikipediaTextarea, .wikipediaUrlField {
+    width:100%;
+}
+.hide_wikisearchresults {
+    border:1px solid #216a94;
+    border-radius:5px;
+    background-color:#ddd;
+    position:absolute;
+    bottom:8px;
+    right: 8px;
+    width:30px;
+    height:30px;
+    text-align:center;
+}
+.hide_wikisearchresults_X {
+    font-weight:bold;
+    font-size:18px;
+}
+.wikisearchresultscont {
+    display:none;
+    text-align:left;
+    width:100%;
+    padding:4px;
+    position:relative;
+}
+.wikisearchresults {
+    padding:4px 40px 4px 4px;
+    font-size:16px;
+    border:1px solid #ddd;
+    min-height:38px;
+}
+.footerLink {
+    width:80px;
+    margin-bottom:2px;
+}
+.footerLinkRow {
+    margin-top:10px;
+}
+
+#tablegrid td{padding:4px;}
+
+.headerLink {
+    padding: 14px 15px;
+    font-size:16px;
+    line-height:22px;
+    height:50px;
+    float:left;
+    margin-bottom:0px;
+}
+
+.headerLinkActive {
+    text-decoration: underline;
+}
+
+
+.float-right{
+    float:right;
+}
+.title {
+    font-weight:bold;
+    font-size:16px;
+    font-family:Verdana;
+}
+
+.activeLink {
+    font-weight:bold;
+}
+
+.catsCkBoxTd {
+    width:225px;
+
+}
+
+#catsDD {
+    float:left;
+    margin:4px;
+}
+
+.checkMark {
+    font-size: 16px;
+    color:green;
+    display:none;
+}
+.checkBoxColumn {
+    width:90px;
+}
+.checkBoxColumnCell {
+    padding-left:25px;
+}
+
+.sectionTitle{
+    float:left;
+    color:#000000;
+}
+.sectionForm {
+    float:left;
+    padding-left:20px;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+.tdTitle {
+    font-weight:bold;
+}
+
+.tr {
+    float:left;
+    margin-bottom:4px;
+    width:100%;
+}
+
+.td {
+    float:left;
+    margin:1px;
+}
+
+.catRow {
+    border:1px solid #cccccc;
+    margin:2px;
+    padding:2px;
+
+    background-color:#f5f5f5;
+}
+.catThumbnail {
+    float:left;
+    width:50px;
+    height:50px;
+    margin-right:2px;
+    border:1px solid #dddddd;
+}
+.catTitle, .catTitleHierarchy {
+    display:inline-block;
+    margin-right:20px;
+    width:240px;
+    font-size:16px;
+}
+.catTitleHierarchy {
+    width:auto;
+}
+.liAdmin {
+    margin-left:-10px;
+}
+.itemTitle {
+    padding-top:18px;
+    font-weight:bold;
+    clear:both;
+
+}
+.accountRemove {
+    width:200px;
+    float:left;
+    padding:0px;
+
+
+}
+.socialMediaAccountDD{
+    float:left;
+    width:200px;
+    margin-top:2px;
+}
+.isPrimary, .isActive, .useAvatar {
+    float:left;
+    width:100px;
+    text-align:center;
+}
+.useAvatar {
+    width:300px;
+    text-align:left;
+}
+.submitBtn {
+    float:left;
+    text-align:center;
+    margin-left:2px;
+}
+.smaAvatar {
+    width:50px;
+    height:50px;
+    padding:0px;
+    border:1px solid black;
+    margin:2px;
+}
+.smaAvatarForm {
+
+}
+.socialMediaThumb {
+    width:100px;
+    max-height:100px;
+    border:1px solid black;
+    margin:2px 4px 2px 2px;
+    float:left;
+}
+.tdRowOdd {
+    background: #eee
+}
+.tdRowEven {
+    background: #ddd
+}
+.socialMediaRow {
+
+    margin-bottom:10px;
+}
+/*.catRow:nth-child(even) {background: #CCC}*/
+/*.catRow:nth-child(odd) {background: #000000}*/
+
+.socialSiteName {
+    width:350px;
+    margin:2px;
+    float:left;
+    padding-left:8px;
+}
+
+.catsHierarchyOverlay {
+    background-color:#ffffff;
+    border:1px solid black;
+    position:absolute;
+    z-index:2;
+    top:60px;
+    right:50px;
+    width:320px;
+}
+
+#catsHierarchyCont {
+    display:none;
+}
+
+.ulAdmin {
+
+}
+
+#catsHierarchyOverlayToggle {
+    display:inline-block;
+    padding:4px;
+    margin:2px;
+    font-weight:bold;
+    color:#000000;
+    cursor:pointer;
+
+}

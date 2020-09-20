@@ -1,0 +1,114 @@
+You must have installed on your host machine:
+    Docker and docker-compose
+    Git
+    mkcert - for enabling access over https. I've installed it on Ubuntu and on MacOS. On Linux, you have to first install
+    Linuxbrew: https://github.com/FiloSottile/mkcert
+    On MacOS, install mkcert with homebrew https://brew.sh/
+    Both Linuxbrew and Homebrew then run with:
+    brew install mkcert
+    mkcert -install
+
+- Clone the repo
+
+    git clone https://github.com/ezcg/abbotkinneybl.git
+
+- First time bringing up Docker locally, on the HOST machine in abbotkinneybl/nginx/bash directory, run:
+
+    cd abbotkinneybl/nginx/bash/
+
+    bash runmakecerts.sh
+    For the domain name, enter:
+    admin.local
+
+    bash runmakecerts.sh
+    For the domain name, enter:
+    carousel.local
+
+    Add to /etc/hosts file on your host machine:
+    127.0.0.1 admin.local
+    127.0.0.1 carousel.local
+
+- In the root directory, run in your terminal on the host machine:
+
+    cd PATH/TO/abbotkinneybl directory
+    docker-compose up --build
+
+    If this is your first time bringing it up on your host machine, you'll need to populate the db with some data.
+    Run on the command line on your HOST machine:
+
+    docker exec -it db bash -c "cd /db && bash docker_init.sh"
+    docker exec -it admin bash -c "cd /var/app/current && composer update"
+
+- Since this is for demo purposes, the keys to connecting to Twitter and other services are not included and you
+won't be able to run the jobs that retrieve media. However, the above populated data is plenty to try out the admin.
+
+- Open in your browser:
+
+    https://admin.local
+    https://carousel.local
+
+- To exit, in a new terminal, cd into /abbotkinneybl/ and run:
+
+    docker-compose down
+
+- Troubleshooting
+
+    * If docker crashes, you might end up with some corrupt mysql files that will later create permission
+    issues for mysql on the next run. "PermissionError: [Errno 13] Permission denied: '/Path/to/abbotkinneybl/db/docker/data/db/mysql'"
+    To fix that, on your host machine in /abbotkinneybl/ directory run on the host machine:
+
+    sudo rm -fr db/docker
+    And then do docker-compose up again
+
+    * If Laravel complains of permission issues, run this command on the host machine:
+
+    docker exec -it admin bash -c "cd /var/app/current && bash clearcache.sh"
+
+    * An issue I've experienced with brew was getting the error "fatal: could not read Username for 'https://github.com':
+    terminal prompts disabled" and "homebrew/homebrew-dupes does not exist!"
+    Run `brew untap homebrew/homebrew-dupes` to remove it.
+    By running "brew untap homebrew/homebrew-EACHERROR", the errors went away.
+
+    * If pages won't load, in /abbotkinneybl/ run on the host machine:
+    docker-compose down --remove-orphans
+    docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+    And then do docker-compose up again.
+
+    * If you have a slow network connection, there's a chance the composer update in the admin directory might time out.
+    You can rerun it from the command line on the host machine with:
+
+    docker exec -it admin bash -c "cd /var/app/current && composer update"
+
+    * Double check your /etc/hosts file. I pointed admin.local at my Mac and forgot and couldn't figure out why pages wouldn't load on my Ubuntu machine. Doh.
+
+    * Gateway Timeout
+    Be sure apache is running in admin container:
+    docker exec -it admin bash -c "service apache2 status"
+    If not, restart the container:
+    docker restart admin
+    Be sure composer installed all the vendor directories. I counted 48 files when I ran this:
+    docker exec -it admin bash -c "ls -ltra /var/app/current/vendor | wc -l"
+    If there's no vendor directory at all, you forgot to run on the host machine:
+    docker exec -it admin bash -c "cd /var/app/current && composer update"
+
+    * Your connection is not private
+    I get this error when I set my Ubuntu machine /etc/hosts file to point admin.local to my Mac ip address when Mac is running this set up. However, I can call admin.local
+
+    * Unknown database
+    Something went wrong with initializing the database. Run this on the host machine and check the output:
+    docker exec -it db bash -c "cd /db && bash docker_init.sh"
+    It should build the db structure and then grab a zipped file from S3 and import that data into mysql.
+
+    * Laravel should have any errors show up in the browser, but you can always check the logs:
+    docker exec -it admin bash -c "tail -100 /var/app/current/storage/logs/laravel.log"
+
+    * If all else fails, post a question to:
+    https://www.reddit.com/r/ezcg/comments/iv9ggf/abbotkinneybl_app_aggregate_media_streams_and/
+
+- Different content
+
+    I've created other sites using different content but with the same code.
+    See: https://entertainers.now.sh as an example.
+    To create your own site, see SETUP.txt
+
+

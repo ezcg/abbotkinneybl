@@ -1,0 +1,21 @@
+.float-right{
+    float:right;
+}
+.title {
+    font-weight:bold;
+    font-size:16px;
+    font-family:Verdana;
+}
+
+.activeLink {
+    font-weight:bold;
+}
+/* double caret appearing in drop down for some reason so hiding one of the carets*/
+/*#app-navbar-collapse > ul.nav.navbar-right > li > a > span.caret {*/
+    /*display:none;*/
+/*}*/
+
+#catsDD {
+    float:left;
+    margin:4px;
+}

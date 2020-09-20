@@ -1,0 +1,54 @@
+Steps to create your own site using this code.
+
+Everything runs inside Docker containers locally, but uses AWS S3 to write/read json as well retrieve some basic images.
+
+You must have Docker and docker-compose installed on your host machine.
+
+Admin code changes:
+
+    - update admin/app/Site.php with values specific to your site
+    - update admin/env/.env with credentials in the sections TWITTER, AWS, YELP, GOOGLE
+
+Carousel code changes:
+
+    - update carousel/helpers/siteconstants.js with values to point to your own AWS S3 bucket as well as the various values like SITE title etc.
+    - update carousel/css/extra.css and main.css as needed.
+    - update carousel/public/sitemap.txt
+
+- In nginx/bash directory, run:
+
+    bash runmakecerts.sh
+    Enter the admin site domain name. (eg. admin.local)
+
+    bash runmakecerts.sh
+    Enter the carousel domain name. (eg. carousel.local)
+
+    Add to /etc/hosts file on your host machine:
+    127.0.0.1 admin.local
+    127.0.0.1 carousel.local
+
+- If you want to run crons, you'll need to change in the admin service in docker-compose.yml from:
+
+    command: bash -c "/var/app/current/docker_init.sh admin local admin"
+    to
+    command: bash -c "/var/app/current/docker_init.sh admin cron admin"
+
+- In the root directory, run:
+
+    docker-compose up
+
+If it is your first time running this, on the host machine initialize the database by running on the command line:
+
+    docker exec -it db bash -c "cd db && bash init.sh"
+
+Additional
+
+- To use Twitter's lists instead of the main timeline, change docker-compose.yml admin service command from:
+    command: bash -c "/var/app/current/docker_init.sh admin cron admin"
+    to
+    command: bash -c "/var/app/current/docker_init.sh admin cron list"
+  Add the Twitter list ids to TWITTER_LIST_ID_ARR property as a comma delimited string in app/Site.php.
+
+- I had the admin section be deployable to Elastic Beanstalk using aws cli, but I'm not supporting that. There are some files/directories in this repo related to that. There's also authenticated user code allowing for login/registration, but it is commented out.
+
+- See QUICKSTART_DEMO.txt for a demo with data.

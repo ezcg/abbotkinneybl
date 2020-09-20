@@ -1,0 +1,75 @@
+### OSX BOOGERS ###
+.DS_Store
+*._DS_Store
+._.DS_Store
+*._
+._*
+._.*
+
+### WINDOWS BOOGERS ###
+Thumbs.db
+
+### Sass ###
+#bower_components/*
+/.sass-cache/*
+.sass-cache
+
+### SUBLIMETEXT BOOGERS ###
+*.sublime-workspace
+
+admin/vendor
+admin/resources/views/vendor
+
+### DIFFERENT TYPE OF MASTER CONFIGS ###
+
+/composer.lock
+
+### ASSET EXCLUSIONS ###
+/node_modules*
+/node_modules
+/public/storage
+/storage/*.key
+
+### PHPSTORM BOOGERS ###
+.idea/*
+/.idea/*
+/.idea/
+.idea
+.idea/*
+.phpintel/*
+/.phpintel/*
+/storage/debugbar*
+/storage/framework*
+/storage/logs*
+/storage/logs/error.log
+be/storage/logs/laravel.log
+*error.log
+error.log
+/storage/users*
+packages/*
+*bundle.min.js
+bundle.min.js
+
+*.crt
+*.key
+
+docker/
+data.sql
+*.zip
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+.DS_Store
+node_modules
+*.log
+
+dist
+lib
+
+package-lock.json
+
+/.next/
+.next/

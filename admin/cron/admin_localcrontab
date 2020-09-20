@@ -1,0 +1,11 @@
+#
+# This uses Twitter's main timeline, not lists
+#
+15 */4 * * * cd /tmp/ && wget http://admin.local/twitter/gethashtags && wget http://admin.local/twitter/convertfeedtosocialmedia && wget http://admin.local/writehashtag/items && wget http://admin.local/writehashtag/category >> /tmp/adminbuild.log 2>&1
+*/55 * * * * cd /tmp/ && wget http://admin.local/twitter/getfeed && wget http://admin.local/writecategoryjson && wget http://admin.local/writeitemsjson >> /tmp/adminbuild.log 2>&1
+0 1 * * * cd /tmp/ && wget http://admin.local/reddit/read >> /tmp/adminbuild.log 2>&1
+# run on odd days
+0 */1 * * * cd /var/app/current/ && bash rmall.sh
+0 4 * * * wget http://admin.local/yelp?action=reviews && wget http://admin.local/yelp/show >> /tmp/yelpreviews.log 2>&1
+# update contact info every 3 days
+#0 0 */3 * * wget http://admin.local/yelp?action=contactinfo&update=missing >> /tmp/yelpreviews.log 2>&1

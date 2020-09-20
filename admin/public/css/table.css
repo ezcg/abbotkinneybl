@@ -1,0 +1,4 @@
+td {font-weight:bold;padding:4px;}
+.tdcenter {text-align:center;width:90px;}
+tr:nth-child(even) {background: #ddd}
+tr:nth-child(odd) {background: #eee}

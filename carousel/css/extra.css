@@ -1,0 +1,34 @@
+.headerTitle {
+    font-size:36px;
+}
+
+.siteTitleCont {
+    height:70px;
+    max-width:310px;
+}
+.siteTitle {
+    height:68px;
+    text-align:center;
+}
+.linkTitleCont {
+    top:12px;
+    left:16px;
+}
+.siteTitleSubHeader {
+    color:#ffffff;
+    bottom:5px;
+    left:20px;
+    position:absolute;
+}
+.custom-button-group-top {
+    right: 10px;
+    left: auto;
+}
+
+@media screen and (max-width: 700px) {
+
+    .indexSubheaderText {
+        margin-bottom:0px;
+        width:300px;
+    }
+}
