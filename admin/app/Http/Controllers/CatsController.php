@@ -32,6 +32,10 @@ class CatsController extends Controller
         $hasMultiLevelInCatsTable = $r->count();
         $depthArr = $this->depthArr;
         $depthObj = \DB::table('configs')->select('*')->where('name', '=', 'MAX_CATEGORY_LEVEL')->first();
+        if (empty($depthObj)) {
+            $depthObj = new \stdClass();
+            $depthObj->value = 1;
+        }
         return view('cats.depth', compact(
             'depthObj',
             'depthArr',

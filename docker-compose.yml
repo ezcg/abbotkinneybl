@@ -35,8 +35,8 @@ services:
       - ./carousel:/var/app/current
     command: bash -c "/var/app/current/docker_carousel_init.sh"
 
-  db:
-    container_name: db
+  akdb:
+    container_name: akdb
     build:
       context: ./db
       dockerfile: Dockerfile
@@ -56,7 +56,7 @@ services:
   nginx:
     container_name: nginx
     depends_on:
-      - db
+      - akdb
       - admin
       - carousel
     build:
