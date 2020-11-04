@@ -1,12 +1,32 @@
 You must have installed on your host machine:
     Docker and docker-compose
     Git
-    mkcert - for enabling access over https. I've installed it on Ubuntu and on MacOS. On Linux, you have to first install
-    Linuxbrew: https://github.com/FiloSottile/mkcert
-    On MacOS, install mkcert with homebrew https://brew.sh/
-    Both Linuxbrew and Homebrew then run with:
-    brew install mkcert
-    mkcert -install
+    Setup HTTPS on your host machine with mkcert. I've installed mkcert on Ubuntu and on MacOS. On Ubuntu, you have to first install Linuxbrew:
+        Ubuntu:
+            sudo apt-get install build-essential curl git python-setuptools ruby
+            git clone https://github.com/Homebrew/linuxbrew.git ~/.linuxbrew
+            And then add the following to your .bash_profile:
+                export PATH="$HOME/.linuxbrew/bin:$PATH"
+                export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+                export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+            At the command prompt enter:
+                . ~/.bashrc
+            Run `brew update` TWICE like so:
+                brew update && brew update
+            Install mkcert:
+                sudo apt install libnss3-tools
+                Info:   https://github.com/FiloSottile/mkcert
+            Run brew doctor and fix all the warnings:
+                brew doctor
+            Finish up with:
+                brew install mkcert
+                mkcert -install
+
+        On MacOS, install mkcert with homebrew
+            https://brew.sh/
+            Run with:
+            brew install mkcert
+            mkcert -install
 
 - Clone the repo
 
