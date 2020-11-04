@@ -50,6 +50,8 @@ packages/*
 *bundle.min.js
 bundle.min.js
 
+/admin/env/.env
+
 *.crt
 *.key
 
