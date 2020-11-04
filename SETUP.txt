@@ -15,7 +15,7 @@ Carousel code changes:
     - update carousel/css/extra.css and main.css as needed.
     - update carousel/public/sitemap.txt
 
-- Setup ssl by following QUICKSTART_DEMO. If you've already done QUICKSTART_DEMO, then in nginx/bash directory, run:
+- In nginx/bash directory, run:
 
     bash runmakecerts.sh
     Enter the admin site domain name. (eg. admin.local)
